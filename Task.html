@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      border-radius: 5px;
+      background-color: #fbfbfb;
+    }
+
+    .heading {
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #FF6B82;
+    }
+
+    .product-box {
+      background-color: #fff;
+      border: 3px solid #ccc;
+      border-radius: 2px;
+      padding: 16px;
+      width: 380px;
+      height: auto;
+      margin: 16px 0;
+      box-sizing: border-box;
+      cursor: pointer;
+      transition: border-color 0.3s ease-in-out;
+     
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-box:hover {
+      border-color: rgb(246, 92, 118);
+     transform: scale(1.1);
+     
+    }
+
+    .product-details {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .radio-button {
+      margin-top: 22px;
+      margin-right: 10px;
+    }
+
+    .radio-button input {
+      transform: scale(1.5);
+      
+      color: #FF6B82;
+    }
+
+    .options {
+      display: none;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+
+    }
+
+    .option-label {
+      display: flex;
+      flex-direction: row;
+     }
+
+    .option-select {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 5px;
+      margin-right: 10px;
+    }
+
+    .label-s {
+      margin-left: 21px;
+      margin-bottom: 10px;
+    }
+
+    .label-c {
+      margin-left: 35px;
+      margin-bottom: 10px;
+    }
+
+    .select-size {
+      margin-bottom: 10px;
+    }
+
+    .option select {
+      margin-top: 5px;
+    }
+
+    .price-info {
+      display: flex;
+      flex-direction: column;
+      margin-top: 15px;
+      margin-left: 100px;
+    }
+
+    .price {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .discount {
+      font-size: 12px;
+      color: #6c757d;
+      text-decoration: line-through;
+    }
+
+    .discount-badge {
+      background-color: #FF6B82;
+      color: white;
+      padding: 4px 8px;
+      margin-left: 2px;
+      margin-top: 8px;
+      margin-bottom: 35px;
+      font-size: 12px;
+    }
+
+    .add-to-cart-button {
+      background-color: #FF6B82;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+      margin-top: 16px;
+      width: 380px;
+      height: 30px;
+    }
+
+    .add-to-cart-button:hover {
+      background-color: #0062cc;
+    }
+
+    .active .options {
+      display: flex;
+      flex-direction: column;
+      margin-top: 16px;
+    }
+
+    .final-price {
+      display: flex;
+      flex-direction: row;
+      color: #FF6B82;
+    }
+
+    .final-delivery {
+      margin-right: 100px;
+    }
+
+    .final-total {
+      margin-left: 50px;
+      color: #1f1515;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <!-- <h1>YAY! It's BOGO </h1> -->
+    <div class="heading">YAY! It's BOGO</div>
+    <div class="product-box" onclick="toggleOptions(this, 'unit1')">
+      <div class="product-details">
+        <div class="radio-button">
+          <input type="radio" id="unit1" style="color: #FF6B82;" value="HTML" name="units">
+        </div>
+        <div>
+          <h2>Unit 1</h2>
+        </div>
+        
+        <div class="discount-badge">
+          10% off
+        </div>
+
+        <div class="price-info">
+          <div class="price">$10.00 USD</div>
+          <div class="discount">$24.00 USD</div>
+        </div>
+      </div>
+      <div class="options">
+        <div class="option-label " data-attribute="Size">
+          <div class="label-s ">
+            <label for="size">Size</label>
+          </div>
+          <div class="label-c ">
+            <label for="color">Color</label>
+          </div>
+        </div>
+        <div class="option-select">
+          <div class="option-one">
+            #1
+            <select id="size1" class="select-size">
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+            </select>
+            <select id="size1">
+              <option value="Small">Red</option>
+              <option value="Medium">Green</option>
+              <option value="Large">White</option>
+            </select>
+
+          </div>
+          <div class="option-two">
+            #2
+            <select id="size1">
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+            </select>
+            <select id="size1">
+              <option value="Small">Red</option>
+              <option value="Medium">Green</option>
+              <option value="Large">White</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- New Product (Unit 2) -->
+    <div class="product-box" onclick="toggleOptions(this, 'unit2')">
+      <div class="product-details">
+        <div class="radio-button">
+          <input type="radio" id="unit2" style="color: #FF6B82;" value="HTML" name="units">
+        </div>
+        <div>
+          <h2>Unit 2</h2>
+        </div>
+        <div class="discount-badge">
+          20% off
+        </div>
+        <div class="price-info">
+          <div class="price">$18.00 USD</div>
+          <div class="discount">$28.00 USD</div>
+        </div>
+      </div>
+      <div class="options">
+        <div class="option-label " data-attribute="Size">
+          <div class="label-s ">
+            <label for="size">Size</label>
+          </div>
+          <div class="label-c ">
+            <label for="color">Color</label>
+          </div>
+        </div>
+        <div class="option-select">
+          <div class="option-one">
+            #1
+            <select id="size1" class="select-size">
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+            </select>
+            <select id="size1">
+              <option value="Small">Red</option>
+              <option value="Medium">Green</option>
+              <option value="Large">White</option>
+            </select>
+
+          </div>
+          <div class="option-two">
+            #2
+            <select id="size1">
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+            </select>
+            <select id="size1">
+              <option value="Small">Red</option>
+              <option value="Medium">Green</option>
+              <option value="Large">White</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- New Product (Unit 3) -->
+    <div class="product-box" onclick="toggleOptions(this, 'unit3')">
+      <div class="product-details">
+        <div class="radio-button">
+          <input type="radio" id="unit3" style="color: #FF6B82;" value="HTML" name="units">
+        </div>
+        <div>
+          <h2>Unit 3</h2>
+        </div>
+        <div class="discount-badge">
+          30% off
+        </div>
+        <div class="price-info">
+          <div class="price">$24.00 USD</div>
+          <div class="discount">$24.00 USD</div>
+        </div>
+      </div>
+      <div class="options">
+        <div class="option-label " data-attribute="Size">
+          <div class="label-s ">
+            <label for="size">Size</label>
+          </div>
+          <div class="label-c ">
+            <label for="color">Color</label>
+          </div>
+        </div>
+        <div class="option-select">
+          <div class="option-one">
+            #1
+            <select id="size1" class="select-size">
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+            </select>
+            <select id="size1">
+              <option value="Small">Red</option>
+              <option value="Medium">Green</option>
+              <option value="Large">White</option>
+            </select>
+
+          </div>
+          <div class="option-two">
+            #2
+            <select id="size1">
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+            </select>
+            <select id="size1">
+              <option value="Small">Red</option>
+              <option value="Medium">Green</option>
+              <option value="Large">White</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="final-price">
+      <div class="final-delivery">Free Delivery</div>
+      <div class="final-total">Total : $18.00 USD</div>
+    </div>
+
+    <button class="add-to-cart-button" data-action="add-to-cart">+ Add to Cart</button>
+  </div>
+
+  <script>
+    function toggleOptions(box, unitId) {
+      // Uncheck radio buttons of other units
+      const allRadioButtons = document.querySelectorAll('[name="units"]');
+      allRadioButtons.forEach(radioButton => {
+        if (radioButton.id !== unitId) {
+          radioButton.checked = false;
+        }
+      });
+
+      // Show options for the clicked product box
+      box.classList.add("active");
+
+      // Trigger a click on the radio button when the product box is clicked
+      const radioButton = box.querySelector('input[type="radio"]');
+      radioButton.checked = true;
+
+      // Hide options for all product boxes except the clicked one
+      const allProductBoxes = document.querySelectorAll('.product-box');
+      allProductBoxes.forEach(productBox => {
+        if (productBox !== box && productBox.classList.contains("active")) {
+          productBox.classList.remove("active");
+        }
+      });
+
+      // Prevent the click event from propagating to the parent, which may cause the box to close
+      event.stopPropagation();
+    }
+  </script>
+</body>
+
+</html>
